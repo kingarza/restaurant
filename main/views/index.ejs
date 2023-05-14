@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <title>Alegra</title>
+  </head>
+  <body>
+    <div class="d-flex flex-nowrap">
+      <!-- [TODO] Tabla de pedidos en progreso -->
+      <div class="order-2 p-2">
+        <div class="container py-5 h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-50"
+          >
+            <div class="col-10 col-md-10 col-lg-10 col-xl-10">
+              <h1>Órdenes en progreso</h1>
+
+              <table class="table table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Platillo</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% orders_in_progress.forEach(item => { %>
+                  <tr>
+                    <th><%- item.id %></th>
+                    <th><%- item.plate %></th>
+                    <th><%- item.status %></th>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- [TODO] Tabla de pedidos realizados -->
+      <div class="order-2 p-2">
+        <div class="container py-5 h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-50"
+          >
+            <div class="col-10 col-md-10 col-lg-10 col-xl-10">
+              <h1>Órdenes servidas</h1>
+
+              <table class="table table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Platillo</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% orders_done.forEach(item => { %>
+                  <tr>
+                    <th><%- item.id %></th>
+                    <th><%- item.plate %></th>
+                    <th><%- item.status %></th>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="order-1 p-2">
+        <div class="container py-5 h-100">
+          <!-- [TODO] Crear botón para pedir plato -->
+          <button class="btn btn-primary" type="button" id="create_order">
+            Pedir plato
+          </button>
+          <br /><br />
+          <!-- [TODO] Crear botón para actualizar página -->
+          <button class="btn btn-warning" type="button" id="update_page">
+            Actualizar página
+          </button>
+        </div>
+      </div>
+
+      <!-- [TODO] Tabla para observar el inventario -->
+      <div class="order-2 p-2">
+        <div class="container py-5 h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-50"
+          >
+            <div class="col-6 col-md-6 col-lg-6 col-xl-6">
+              <h1>Inventario</h1>
+
+              <table class="table table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Ingrediente</th>
+                    <th scope="col">Cantidad</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% stock.forEach(item => { %>
+                  <tr>
+                    <th><%- item.id %></th>
+                    <th><%- item.ingredient %></th>
+                    <th><%- item.quantity %></th>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- [TODO] Tabla para mostrar los platillos -->
+      <div class="order-2 p-2">
+        <div class="container py-5 h-100">
+          <div
+            class="row d-flex justify-content-center align-items-center h-50"
+          >
+            <div class="col-10 col-md-10 col-lg-10 col-xl-10">
+              <h1>Platillos</h1>
+
+              <table class="table table-dark table-hover">
+                <thead>
+                  <tr>
+                    <th scope="col">Id</th>
+                    <th scope="col">Platillo</th>
+                    <th scope="col">Ingredientes y cantidades</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <% plates.forEach(item => { %>
+                  <tr>
+                    <th><%- item.id %></th>
+                    <th><%- item.name %></th>
+                    <th><%- item.ingredients_and_quantity %></th>
+                  </tr>
+                  <% }); %>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.min.js"
+      integrity="sha384-cuYeSxntonz0PPNlHhBs68uyIAVpIIOZZ5JqeqvYYIcEL727kskC66kF92t6Xl2V"
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      const popoverTriggerList = document.querySelectorAll(
+        '[data-bs-toggle="popover"]'
+      );
+      const popoverList = [...popoverTriggerList].map(
+        (popoverTriggerEl) => new bootstrap.Popover(popoverTriggerEl)
+      );
+    </script>
+
+    <script>
+      document
+        .getElementById("create_order")
+        .addEventListener("click", async function () {
+          const requestOptions = {
+            method: "GET",
+            redirect: "follow",
+          };
+          await fetch(`http://44.212.57.144:3000/process_order`, requestOptions);
+        });
+    </script>
+    <script>
+      document
+        .getElementById("update_page")
+        .addEventListener("click", async function () {
+          document.location.reload();
+        });
+    </script>
+  </body>
+</html>
